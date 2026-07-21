@@ -1,0 +1,27 @@
+name: Cleanup Pinecone Index
+
+on:
+  schedule:
+    # Runs at 00:00 UTC on the 1st and 16th of every month (~every 15 days)
+    - cron: '0 0 1,16 * *'
+  workflow_dispatch: {}  # lets you also trigger it manually from the GitHub Actions tab
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pinecone python-dotenv
+
+      - name: Run cleanup script
+        env:
+          PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
+        run: python cleanup_pinecone.py
