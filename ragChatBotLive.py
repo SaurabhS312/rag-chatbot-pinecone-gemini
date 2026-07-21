@@ -29,7 +29,7 @@ if "session_id" not in st.session_state:
 
 with st.sidebar:
     st.title("Your Documents")
-    file = st.file_uploader("Upload a PDF file and start asking questions", type=["pdf", "csv", "txt"])
+    file = st.file_uploader("Upload a PDF file and start asking questions", type=["pdf"])
 
 if file is not None:
     pc = Pinecone(api_key=os.environ['PINECONE_API_KEY'])
