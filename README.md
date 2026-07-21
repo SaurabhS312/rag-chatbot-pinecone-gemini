@@ -1,5 +1,7 @@
 # RAG Chatbot — Chat with Your PDFs
 
+<img width="1355" height="524" alt="image" src="https://github.com/user-attachments/assets/52947745-4b15-4a00-aed3-58f862991d33" />
+
 A Retrieval-Augmented Generation (RAG) chatbot that lets you upload a PDF and ask questions about its contents. Built as a hands-on project while learning GenAI/RAG engineering.
 
 ## How it works
